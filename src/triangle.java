@@ -16,13 +16,19 @@ public class triangle extends shape {
         if(rate>x1 && rate<x3){
             if(rate>x1 && rate<=x2){
                 y1=0; y2=1;
-                slope=(y2-y1)/(x2-x1);
+                if(x2-x1==0)
+                    slope=1;
+                else
+                    slope=(y2-y1)/(x2-x1);
                 /** Y=ax+c*/
                 c=y1-(x1*slope);
             }
             else{
                 y1=1; y2=0;
-                slope=(y2-y1)/(x3-x2);
+                if(x3-x2==0)
+                    slope=1;
+                else
+                    slope=(y2-y1)/(x3-x2);
                 c=y1-(slope*x2);
             }
             Membership=(slope*rate)+c;

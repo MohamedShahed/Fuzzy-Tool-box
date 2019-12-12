@@ -16,7 +16,10 @@ public class trapezoidal extends shape {
         if(rate>x1 && rate<x4){
             if(rate>x1 && rate<=x2){
                 y1=0; y2=1;
-                slope=(y2-y1)/(x2-x1);
+                if(x2-x1==0)
+                    slope=1;
+                else
+                    slope=(y2-y1)/(x2-x1);
                 /** Y=ax+c
                  * c=Y-ax
                  * */
@@ -24,12 +27,18 @@ public class trapezoidal extends shape {
             }
             else if(rate>x2 && rate<=x3){
                 y1=1; y2=1;
-                slope=(y2-y1)/(x3-x2);
+                if(x3-x2==0)
+                    slope=1;
+                else
+                    slope=(y2-y1)/(x3-x2);
                 c=y1-(slope*x2);
             }
             else{
                 y1=1;y2=0;
-                slope=(y2-y1)/(x4-x3);
+                if(x4-x3==0)
+                    slope=1;
+                else
+                    slope=(y2-y1)/(x4-x3);
                 c=y1-(slope*x3);
             }
             Membership=(slope*rate)+c;
